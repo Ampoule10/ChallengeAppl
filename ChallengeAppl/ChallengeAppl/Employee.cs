@@ -24,7 +24,7 @@
             }
 
         }
-        public void Addscore(int score)
+        public void AddScore(int score)
         {
             this.score.Add(score);
 

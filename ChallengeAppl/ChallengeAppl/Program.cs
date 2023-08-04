@@ -5,23 +5,23 @@ Employee employee2 = new Employee("Stefan", "Kowalski", 30);
 Employee employee3 = new Employee("Marek", "Budzisz", 27);
 
 
-employee1.Addscore(9);
-employee1.Addscore(8);
-employee1.Addscore(7);
-employee1.Addscore(6);
-employee1.Addscore(5);
+employee1.AddScore(9);
+employee1.AddScore(8);
+employee1.AddScore(7);
+employee1.AddScore(6);
+employee1.AddScore(5);
 
-employee2.Addscore(8);
-employee2.Addscore(7);
-employee2.Addscore(6);
-employee2.Addscore(5);
-employee2.Addscore(4);
+employee2.AddScore(8);
+employee2.AddScore(7);
+employee2.AddScore(6);
+employee2.AddScore(5);
+employee2.AddScore(4);
 
-employee3.Addscore(9);
-employee3.Addscore(8);
-employee3.Addscore(9);
-employee3.Addscore(8);
-employee3.Addscore(9);
+employee3.AddScore(9);
+employee3.AddScore(8);
+employee3.AddScore(9);
+employee3.AddScore(8);
+employee3.AddScore(9);
 
 List<Employee> employees = new List<Employee>()
 {
@@ -40,5 +40,4 @@ foreach (var employee in employees)
     }
 
 }
-
 Console.WriteLine("Pracownik - " + employeeWithMaxResult.Name + " " + "" + employeeWithMaxResult.Surname + ", " + "" + (employeeWithMaxResult.Age + " lat, ") + "" + "uzyskał największą sumę ocen: " + "" + employeeWithMaxResult.Result);
