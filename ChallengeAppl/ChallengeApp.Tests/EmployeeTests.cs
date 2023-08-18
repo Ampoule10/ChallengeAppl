@@ -4,7 +4,7 @@
     {      
 
         [Test]
-        public void WhenEmployeeCollectGrades_ShouldCorrectResult()
+        public void WhengetStatisticsCalled_ShouldReturnCorrectMax()
         {
             //arrange
             var employee = new Employee("Robert", "Lewandowski");
@@ -13,13 +13,43 @@
             employee.AddGrade(6);
 
             //act
-            var result = employee.GetStatistics();
+            var statistcs = employee.GetStatistics();
 
             //assert
-            Assert.That(result.Average, Is.EqualTo(3.33f).Within(0.01f));
-            Assert.That(result.Min, Is.EqualTo(2));
-            Assert.That(result.Max, Is.EqualTo(6));
-        }  
+            Assert.AreEqual(6, statistcs.Max);        
+        }
+
+        [Test]
+        public void WhengetStatisticsCalled_ShouldReturnCorrectMin()
+        {
+            //arrange
+            var employee = new Employee("Robert", "Lewandowski");
+            employee.AddGrade(2);
+            employee.AddGrade(2);
+            employee.AddGrade(6);
+
+            //act
+            var statistcs = employee.GetStatistics();
+
+            //assert
+            Assert.AreEqual(2, statistcs.Min);
+        }
+
+        [Test]
+        public void WhengetStatisticsCalled_ShouldReturnCorrectAverage()
+        {
+            //arrange
+            var employee = new Employee("Robert", "Lewandowski");
+            employee.AddGrade(2);
+            employee.AddGrade(2);
+            employee.AddGrade(6);
+
+            //act
+            var statistcs = employee.GetStatistics();
+
+            //assert
+            Assert.AreEqual(Math.Round (3.33, 2), Math.Round(statistcs.Average, 2));
+        }
     }
 }
 
