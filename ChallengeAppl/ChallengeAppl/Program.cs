@@ -4,7 +4,7 @@ Console.WriteLine("Witamy w Programie XYZ do oceny pracowników.");
 Console.WriteLine("============================================");
 Console.WriteLine();
 
-var employee = new Employee();
+var employee = new Employee("Robert", "Lewandowski");
 
 while (true)
 {
@@ -14,19 +14,28 @@ while (true)
     {
         break;
     }
-    else if (input == "A" || input == "B" || input == "C" || input == "D" || input == "E")
+
+    try
     {
-        var CharInput = Convert.ToChar(input);
-        employee.AddGrade(CharInput);
+        if (input == "A" || input == "B" || input == "C" || input == "D" || input == "E")
+        {
+            var CharInput = Convert.ToChar(input);
+            employee.AddGrade(CharInput);
+        }
+        else
+        {
+            employee.AddGrade(input);
+        }
     }
-    else
+    catch(Exception e)
     {
-        employee.AddGrade(input);
+        Console.WriteLine($"Exception cought: {e.Message}");
     }
+   
 }
 
 var statistics = employee.GetStatistics();
-Console.WriteLine($"AVG: {statistics.Average}");
+Console.WriteLine($"AVG: {statistics.Average:N2}");
 Console.WriteLine($"Min: {statistics.Min}");
 Console.WriteLine($"Max: {statistics.Max}");
 

@@ -4,8 +4,10 @@
     {
         private List<float> grades = new List<float>();
 
-        public Employee()
-        { 
+        public Employee(string name, string surname)
+        {
+            this.Name = name;
+            this.Surname = surname;
         }
 
         public string Name { get; private set; }
@@ -20,7 +22,7 @@
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("invalid grade value");
             }            
         }
 
@@ -82,9 +84,7 @@
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    this.grades.Add(0);
-                    break;
+                    throw new Exception("Wrong Letter");                   
             }
         }
         public void AddGrade(string grade)
@@ -100,7 +100,7 @@
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");            
             }
         }
 
