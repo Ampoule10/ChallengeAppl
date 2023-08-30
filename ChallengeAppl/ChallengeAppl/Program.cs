@@ -1,44 +1,57 @@
-﻿using ChallengeAppl;
-
-Console.WriteLine("Witamy w Programie XYZ do oceny pracowników.");
-Console.WriteLine("============================================");
-Console.WriteLine();
+﻿using ChallengeApp;
+using ChallengeAppl;
 
 var employee = new Employee("Robert", "Lewandowski");
+Console.WriteLine("Witamy w Programie do oceny pracowników");
+Console.WriteLine("=======================================");
+Console.WriteLine();
+
+var isItFirstLoop = true;
 
 while (true)
 {
-    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
+    if (isItFirstLoop == true)
+    {
+        Console.WriteLine("Podaj ocenę:");
+        isItFirstLoop = false;
+    }
+    else
+    {
+        Console.WriteLine("Podaj kolejną ocenę:");
+    }
     var input = Console.ReadLine();
-    if(input == "q")
+
+    if (input == "q")
     {
         break;
     }
-
-    try
+    if (input.Length == 1 && !(int.TryParse(input, out int i)))
     {
-        if (input == "A" || input == "B" || input == "C" || input == "D" || input == "E")
+        char.TryParse(input, out char result);
+        try
         {
-            var CharInput = Convert.ToChar(input);
-            employee.AddGrade(CharInput);
+            employee.AddGrade(result);
         }
-        else
+        catch (Exception e)
+        {
+            Console.WriteLine($"Exception catched: {e.Message}");
+        }
+    }
+    else
+    {
+        try
         {
             employee.AddGrade(input);
         }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Exception catched: {e.Message}");
+        }
     }
-    catch(Exception e)
-    {
-        Console.WriteLine($"Exception cought: {e.Message}");
-    }
-   
 }
 
 var statistics = employee.GetStatistics();
-Console.WriteLine($"AVG: {statistics.Average:N2}");
+Console.WriteLine();
+Console.WriteLine($"Średnia: {Math.Round(statistics.Average, 2)}");
 Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-
-
-
-
+Console.WriteLine($"Max {statistics.Max}");
