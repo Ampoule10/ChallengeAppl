@@ -1,4 +1,4 @@
-﻿namespace ChallengeApp
+﻿namespace ChallengeAppl
 {
     public abstract class Person
     {

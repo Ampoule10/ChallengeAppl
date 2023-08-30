@@ -1,6 +1,4 @@
-﻿using ChallengeAppl;
-
-namespace ChallengeApp
+﻿namespace ChallengeAppl
 {
     public class Employee : Person
     {
