@@ -1,7 +1,7 @@
 ﻿using ChallengeAppl;
 
-var employee = new Employee("Robert", "Lewandowski");
-Console.WriteLine("Witamy w Programie do oceny pracowników");
+var employee = new Supervisor("Robert", "Lewandowski");
+Console.WriteLine("Witamy w Programie do oceny kierowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
 
@@ -54,3 +54,4 @@ Console.WriteLine();
 Console.WriteLine($"Średnia: {Math.Round(statistics.Average, 2)}");
 Console.WriteLine($"Min: {statistics.Min}");
 Console.WriteLine($"Max {statistics.Max}");
+
